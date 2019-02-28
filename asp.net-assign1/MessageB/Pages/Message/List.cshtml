@@ -1,0 +1,46 @@
+﻿@page
+@model ListModel
+@{
+}
+<h1>MessageBoard</h1>
+<form method="get">
+    
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchValue"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+
+    </div>
+    
+
+</form>
+<table class="table">
+    @foreach (var m in Model.Mess)
+    {
+        <tr>
+            <td>@m.Id</td>
+            <td>@m.Name</td>
+            <td>@m.messageBody</td>
+            <td>@m.Date</td>
+            
+       <td> 
+            <a asp-page="./Detail" asp-route-messageId=@m.Id />
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+      </td>
+                <td><a asp-page="./Comment" asp-route-messageId=@m.Id class="btn btn-lg">
+                    <i class="glyphicon glyphicon-comment"></i>
+                </a></td>
+                <td>
+                    @m.like
+                </td>
+               
+       </tr> 
+    }
+</table>
+
+<a asp-page="./AddNewPost" class="btn btn-primary">Add New Post</a>

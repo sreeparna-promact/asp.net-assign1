@@ -1,0 +1,44 @@
+﻿@page "{messageId:int},"
+@model MessageB.Pages.Message.DetailModel
+
+
+@{
+    ViewData["Title"] = "Detail";
+}
+   <input type="hidden" asp-for="Messages.Id">
+    <input type="hidden" asp-for="Messages.Name">
+    <input type="hidden" asp-for="Messages.messageBody">
+    <input type="hidden" asp-for="Messages.Date">
+    
+<h1>Message Details</h1>
+<div>
+    Id: @Model.Messages.Id
+</div>
+
+<div>
+    Name:@Model.Messages.Name
+</div>
+
+<div>
+    Message:@Model.Messages.messageBody
+</div>
+
+<div>
+    Date:@Model.Messages.Date
+</div>
+
+<div>
+    <a asp-page="./List" class="btn btn-default">All Restaurants</a>
+</div>
+
+<div>
+    <h3>Comment:@Model.Messages.comment</h3>
+    <h5>Commented By:@Model.Messages.commenter</h5>
+    
+</div>
+<div>
+    <a asp-page="./List" asp-for="Messages.like" asp-route-messageId="MessagesId">
+        <i class="glyphicon glyphicon-thumbs-up"></i>
+</a>
+</div>
+

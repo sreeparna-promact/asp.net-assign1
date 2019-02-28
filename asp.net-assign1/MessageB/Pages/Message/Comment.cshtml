@@ -1,0 +1,37 @@
+﻿@page "{messageId:int}"
+@model MessageB.Pages.Message.CommentModel
+@{
+    ViewData["Title"] = "Comment";
+}
+
+<h2>Comment</h2>
+
+<form method="post">
+
+       
+
+    <input type="hidden" asp-for="M.Id">
+    <input type="hidden" asp-for="M.Name">
+    <input type="hidden" asp-for="M.messageBody">
+    <input type="hidden" asp-for="M.Date">
+    
+    
+    <div class="form-group">
+        Commented By:
+        <input asp-for="M.commenter" class="form-control"/> 
+    </div>
+    <div class="form-group">
+        Comment:
+        <input asp-for="M.comment" placeholder="Add a Comment" class="form-control" />
+
+    </div>
+
+   
+
+    <div class="form-group">
+        <button asp-for="./Detail" type="submit"  class="btn btn-primary">Comment</button>
+    </div>
+
+
+</form>
+
